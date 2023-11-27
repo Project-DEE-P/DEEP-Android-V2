@@ -5,4 +5,14 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class DeepApplication : Application() {
+
+    companion object {
+        lateinit var prefs: PreferenceManager
+    }
+
+    override fun onCreate() {
+        prefs = PreferenceManager(applicationContext)
+        super.onCreate()
+    }
+
 }

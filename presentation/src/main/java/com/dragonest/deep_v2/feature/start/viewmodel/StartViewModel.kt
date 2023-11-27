@@ -3,8 +3,10 @@ package com.dragonest.deep_v2.feature.start.viewmodel
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.dragonest.deep_v2.feature.start.state.LoginState
+import com.dragonest.deep_v2.feature.start.state.SignupState
 import com.dragonest.deep_v2.util.DeepApplication
 import com.dragonest.domain.model.user.LoginRequestModel
+import com.dragonest.domain.model.user.SignupRequestModel
 import com.dragonest.domain.repository.UserRepository
 import com.ggd.zendee.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +23,9 @@ class StartViewModel @Inject constructor(
     private val _loginState = MutableSharedFlow<LoginState>()
     val loginState: SharedFlow<LoginState> = _loginState
 
+    private val _signupState = MutableSharedFlow<SignupState>()
+    val signupState: SharedFlow<SignupState> = _signupState
+
     fun login(loginRequestModel: LoginRequestModel) = viewModelScope.launch {
         kotlin.runCatching {
             userRepository.login(loginRequestModel)
@@ -31,6 +36,18 @@ class StartViewModel @Inject constructor(
         }.onFailure { e ->
             Log.d(TAG, "login: FAILED.. $e")
             _loginState.emit(LoginState(error = "${e.message}"))
+        }
+    }
+
+    fun signup(signupRequestModel: SignupRequestModel) = viewModelScope.launch {
+        kotlin.runCatching {
+            userRepository.signup(signupRequestModel)
+        }.onSuccess {
+            Log.d(TAG, "signup: SUCCESS!! $it")
+            _signupState.emit(SignupState(isSuccess = true))
+        }.onFailure { e ->
+            Log.d(TAG, "login: FAILED.. $e")
+            _signupState.emit(SignupState(error = "${e.message}"))
         }
     }
 

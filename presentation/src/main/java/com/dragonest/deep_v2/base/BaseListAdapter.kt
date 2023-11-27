@@ -15,9 +15,11 @@ abstract class BaseListAdapter<T : Any, VDB : ViewDataBinding>(
 
     abstract fun action(data: T, binding: VDB)
 
-    inner class BaseViewHolder(private val binding: VDB) : RecyclerView.ViewHolder(binding.root) {
+    inner class BaseViewHolder(val binding: VDB) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: T) {
             action(item, binding)
+
+
         }
     }
 

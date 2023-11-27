@@ -40,6 +40,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(R
 
     }
 
+
+
     suspend fun setCollector(){
         viewModel.getCardListState.collect{
 
@@ -49,7 +51,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(R
                 UiState.Failure -> {}
                 UiState.Loading -> {}
                 is UiState.Success -> {
-                    profileCardAdapter.submitList(it.data)
+                    profileCardAdapter.submitList(it.data?.toMutableList())
                 }
             }
         }

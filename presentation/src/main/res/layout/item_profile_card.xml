@@ -32,6 +32,7 @@
 
             android:background="@drawable/bg_checkbox_card"
 
+            android:clickable="false"
             android:button="@null"
 
             app:layout_constraintBottom_toBottomOf="@+id/img_card"

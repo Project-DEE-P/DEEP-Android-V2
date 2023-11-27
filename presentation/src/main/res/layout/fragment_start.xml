@@ -33,6 +33,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/button_stroke"
             android:text="구글로 로그인"
+            android:drawableLeft="@drawable/ic_google"
             android:textColor="@color/gray_900"
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/linear_signup"

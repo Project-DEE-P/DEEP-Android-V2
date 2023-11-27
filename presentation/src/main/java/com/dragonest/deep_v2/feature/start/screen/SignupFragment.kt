@@ -11,7 +11,9 @@ import com.dragonest.deep_v2.R
 import com.dragonest.deep_v2.databinding.FragmentSignupBinding
 import com.dragonest.deep_v2.feature.start.viewmodel.StartViewModel
 import com.ggd.zendee.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignupFragment: BaseFragment<FragmentSignupBinding, StartViewModel>(R.layout.fragment_signup) {
 
     override val viewModel: StartViewModel by viewModels()

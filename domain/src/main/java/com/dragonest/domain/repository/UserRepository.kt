@@ -1,7 +1,7 @@
 package com.dragonest.domain.repository
 
-import com.dragonest.domain.model.user.GoogleOauthRequestModel
-import com.dragonest.domain.model.user.GoogleOauthResponseModel
+import com.dragonest.domain.model.oauth.GoogleOauthRequestModel
+import com.dragonest.domain.model.oauth.GoogleOauthResponseModel
 import com.dragonest.domain.model.user.LoginRequestModel
 import com.dragonest.domain.model.user.LoginResponseModel
 import com.dragonest.domain.model.user.SignupRequestModel
@@ -16,9 +16,5 @@ interface UserRepository {
     suspend fun signup(
         signupRequestModel: SignupRequestModel
     ): SignupResponseModel
-
-    suspend fun googleLogin(
-        googleOauthRequestModel: GoogleOauthRequestModel
-    ): GoogleOauthResponseModel
 
 }

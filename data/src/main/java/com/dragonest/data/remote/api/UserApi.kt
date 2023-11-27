@@ -12,11 +12,6 @@ import retrofit2.http.POST
 
 interface UserApi {
 
-    @POST("/v1/api/auth/google")
-    suspend fun googleOauthLogin(
-        @Body googleOauthRequest: GoogleOauthRequest
-    ): BaseResponse<GoogleOauthResponse>
-
     @POST("/v1/api/auth/login")
     suspend fun login(
         @Body loginRequest: LoginRequest

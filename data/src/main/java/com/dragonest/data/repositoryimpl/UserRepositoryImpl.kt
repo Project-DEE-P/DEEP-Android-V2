@@ -3,8 +3,8 @@ package com.dragonest.data.repositoryimpl
 import com.dragonest.data.mapper.toDto
 import com.dragonest.data.mapper.toModel
 import com.dragonest.data.network.api.UserApi
-import com.dragonest.domain.model.user.GoogleOauthRequestModel
-import com.dragonest.domain.model.user.GoogleOauthResponseModel
+import com.dragonest.domain.model.oauth.GoogleOauthRequestModel
+import com.dragonest.domain.model.oauth.GoogleOauthResponseModel
 import com.dragonest.domain.model.user.LoginRequestModel
 import com.dragonest.domain.model.user.LoginResponseModel
 import com.dragonest.domain.model.user.SignupRequestModel
@@ -21,8 +21,5 @@ class UserRepositoryImpl @Inject constructor(
 
     override suspend fun signup(signupRequestModel: SignupRequestModel): SignupResponseModel =
         userApi.signup(signupRequestModel.toDto()).toModel()
-
-    override suspend fun googleLogin(googleOauthRequestModel: GoogleOauthRequestModel): GoogleOauthResponseModel =
-        userApi.googleOauthLogin(googleOauthRequestModel.toDto()).data!!.toModel()
 
 }

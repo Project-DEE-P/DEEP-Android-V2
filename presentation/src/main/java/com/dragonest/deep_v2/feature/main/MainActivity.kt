@@ -31,9 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
-//        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

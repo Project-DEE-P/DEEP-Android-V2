@@ -1,4 +1,4 @@
-package com.dragonest.domain.model.user
+package com.dragonest.domain.model.oauth
 
 data class GoogleOauthRequestModel(
     val token: String

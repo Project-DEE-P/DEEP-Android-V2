@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dragonest.deep_v2.R
-import com.dragonest.deep_v2.databinding.FragmentLoginBinding
+import com.dragonest.deep_v2.databinding.FragmentSignupBinding
 import com.dragonest.deep_v2.feature.start.viewmodel.StartViewModel
 import com.ggd.zendee.base.BaseFragment
 
-class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout.fragment_login) {
+class SignupFragment: BaseFragment<FragmentSignupBinding, StartViewModel>(R.layout.fragment_signup) {
 
     override val viewModel: StartViewModel by viewModels()
 

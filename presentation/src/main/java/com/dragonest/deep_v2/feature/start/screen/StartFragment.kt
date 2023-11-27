@@ -13,7 +13,14 @@ class StartFragment: BaseFragment<FragmentStartBinding, StartViewModel>(R.layout
 
     override fun start() {
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(StartFragmentDirections.toLoginFragment())
+            findNavController().navigate(
+                StartFragmentDirections.toLoginFragment()
+            )
+        }
+        binding.linearSignup.setOnClickListener {
+            findNavController().navigate(
+                StartFragmentDirections.toSignupFragment()
+            )
         }
     }
 

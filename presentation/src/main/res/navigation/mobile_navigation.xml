@@ -30,5 +30,19 @@
         android:id="@+id/cardDetailFragment"
         android:name="com.dragonest.deep_v2.feature.carddetail.CardDetailFragment"
         android:label="CardDetailFragment" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.dragonest.deep_v2.feature.start.screen.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dragonest.deep_v2.feature.start.screen.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>

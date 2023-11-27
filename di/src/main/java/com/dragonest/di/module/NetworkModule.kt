@@ -3,6 +3,7 @@ package com.dragonest.di.module
 import com.dragonest.data.network.api.CardApi
 import com.dragonest.data.network.api.ClovaOcrApi
 import com.dragonest.data.network.api.UserApi
+import com.dragonest.data.remote.api.OauthApi
 import com.dragonest.di.BASE_CLOVA_URL
 import com.dragonest.di.BASE_URL
 import com.dragonest.di.BasicRetrofit
@@ -35,8 +36,13 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideUserApi(@OauthRetrofit retrofit: Retrofit): UserApi =
+    fun provideUserApi(@BasicRetrofit retrofit: Retrofit): UserApi =
         retrofit.create(UserApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideOauthApi(@OauthRetrofit retrofit: Retrofit): OauthApi =
+        retrofit.create(OauthApi::class.java)
 
     @Provides
     @Singleton

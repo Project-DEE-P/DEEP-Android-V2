@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dragonest.deep_v2.R
 import com.dragonest.deep_v2.base.UiState
@@ -30,6 +31,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(R
         binding.recyclerviewCardList.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = profileCardAdapter
+        }
+
+        binding.btnSetting.setOnClickListener {
+            findNavController().navigate(ProfileFragmentDirections.toSettingFragment())
         }
 
         CoroutineScope(Dispatchers.Main).launch{

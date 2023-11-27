@@ -6,9 +6,10 @@ import com.dragonest.deep_v2.feature.start.state.GoogleLoginState
 import com.dragonest.deep_v2.feature.start.state.LoginState
 import com.dragonest.deep_v2.feature.start.state.SignupState
 import com.dragonest.deep_v2.util.DeepApplication
-import com.dragonest.domain.model.user.GoogleOauthRequestModel
+import com.dragonest.domain.model.oauth.GoogleOauthRequestModel
 import com.dragonest.domain.model.user.LoginRequestModel
 import com.dragonest.domain.model.user.SignupRequestModel
+import com.dragonest.domain.repository.OauthRepository
 import com.dragonest.domain.repository.UserRepository
 import com.ggd.zendee.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StartViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val oauthRepository: OauthRepository
 ): BaseViewModel() {
 
     private val _loginState = MutableSharedFlow<LoginState>()
@@ -58,7 +60,7 @@ class StartViewModel @Inject constructor(
 
     fun googleLogin(googleOauthRequestModel: GoogleOauthRequestModel) = viewModelScope.launch {
         kotlin.runCatching {
-            userRepository.googleLogin(googleOauthRequestModel)
+            oauthRepository.googleLogin(googleOauthRequestModel)
         }.onSuccess {
             Log.d(TAG, "googleLogin: SUCCESS!! $it")
             _googleLoginState.emit(GoogleLoginState(isSuccess = true))

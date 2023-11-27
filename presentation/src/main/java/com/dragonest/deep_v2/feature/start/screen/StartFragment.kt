@@ -13,7 +13,7 @@ import com.dragonest.deep_v2.feature.start.viewmodel.StartViewModel
 import com.dragonest.deep_v2.util.DeepApplication
 import com.dragonest.deep_v2.util.GOOGLE_CLIENT_ID
 import com.dragonest.deep_v2.util.showToast
-import com.dragonest.domain.model.user.GoogleOauthRequestModel
+import com.dragonest.domain.model.oauth.GoogleOauthRequestModel
 import com.ggd.zendee.base.BaseFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -52,9 +52,9 @@ class StartFragment: BaseFragment<FragmentStartBinding, StartViewModel>(R.layout
     override fun start() {
         context = requireContext()
 
-        if (DeepApplication.prefs.autoLogin) {
+//        if (DeepApplication.prefs.autoLogin) {
             findNavController().navigate(StartFragmentDirections.toNavigationStorage())
-        }
+//        }
 
         onClickButtons()
         handleGoogleLoginState()

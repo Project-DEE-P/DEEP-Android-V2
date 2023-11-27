@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.profile.ProfileFragment">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_setting"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:background="@drawable/ic_setting"
+
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="14dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_create"
+
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_create"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
+            app:layout_constraintEnd_toStartOf="@+id/btn_setting"
+            app:layout_constraintTop_toTopOf="@+id/btn_setting"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/img_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+
+            android:background="@drawable/ic_profile_filled"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_create" />
+
+        <TextView
+            android:id="@+id/txt_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="최희건님"
+            android:fontFamily="@font/pretendard_bold"
+            android:textSize="24dp"
+            android:textColor="@color/gray_900"
+
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"
+            app:layout_constraintTop_toTopOf="@+id/img_profile" />
+
+        <TextView
+            android:id="@+id/txt_created_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/pretendard_semibold"
+            android:text="제작된 명함"
+            android:textColor="@color/gray_700"
+            android:textSize="18dp"
+
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_put_nfc"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:background="@drawable/ic_put_card"
+
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_created_card_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_created_card_title" />
+
+        <TextView
+            android:id="@+id/txt_put_nfc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/pretendard_medium"
+            android:text="명함 넣기"
+            android:textColor="@color/gray_300"
+            android:textSize="14dp"
+
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_put_nfc"
+            app:layout_constraintEnd_toStartOf="@+id/btn_put_nfc"
+            app:layout_constraintTop_toTopOf="@+id/btn_put_nfc" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="12dp"
+
+            tools:listitem="@layout/item_profile_card"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_created_card_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

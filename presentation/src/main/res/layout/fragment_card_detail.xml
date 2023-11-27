@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.carddetail.CardDetailFragment">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:background="@drawable/ic_arrow_back"
+
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="18dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_topbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="김예림님의 명함"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="16dp"
+            android:textColor="@color/gray_900"
+
+            app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_back" />
+
+        <ImageView
+            android:id="@+id/img_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/bg_card_dummy"
+            android:adjustViewBounds="true"
+
+            android:layout_marginTop="14dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_topbar" />
+
+        <TextView
+            android:id="@+id/txt_memo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="메모"
+            android:fontFamily="@font/pretendard_bold"
+            android:textSize="18dp"
+            android:textColor="@color/gray_900"
+
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_card" />
+
+        <TextView
+            android:id="@+id/txt_memo_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="수정"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="14dp"
+            android:layout_marginEnd="18dp"
+            android:textColor="@color/blue_500"
+
+            app:layout_constraintBottom_toBottomOf="@+id/txt_memo_title"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_memo_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/pretendard_regular"
+            android:textSize="16dp"
+            android:textColor="@color/gray_900"
+            android:text="2023년 6월 13일에 만남. 웹 개발 실력이 특출나고, 말 솜씨가 대단하다. 나중에 연락할 예정"
+            android:layout_marginTop="4dp"
+
+            app:layout_constraintEnd_toEndOf="@+id/txt_memo_edit"
+            app:layout_constraintStart_toStartOf="@+id/txt_memo_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_memo_title" />
+
+        <TextView
+            android:id="@+id/txt_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/pretendard_bold"
+            android:text="명함 정보"
+            android:textColor="@color/gray_900"
+            android:textSize="18dp"
+
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="19dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_memo_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="18dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_info_title"
+
+            tools:listitem="@layout/item_detail_info"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

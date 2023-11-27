@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_storage">
+
+    <fragment
+        android:id="@+id/navigation_storage"
+        android:name="com.dragonest.deep_v2.feature.storage.StorageFragment"
+        android:label="보관함"
+        tools:layout="@layout/fragment_storage" >
+        <action
+            android:id="@+id/action_navigation_storage_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_purchase"
+        android:name="com.dragonest.deep_v2.feature.purchase.PurchaseFragment"
+        android:label="구매"
+        tools:layout="@layout/fragment_purchase" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.dragonest.deep_v2.feature.profile.ProfileFragment"
+        android:label="프로필"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.dragonest.deep_v2.feature.carddetail.CardDetailFragment"
+        android:label="CardDetailFragment" />
+
+</navigation>

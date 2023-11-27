@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.storage.StorageFragment">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_deep_logo"
+            android:layout_width="68dp"
+            android:layout_height="17dp"
+
+            android:layout_marginStart="18dp"
+
+            android:background="@drawable/ic_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_search"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_search" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/btn_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/ic_search"
+
+            android:layout_marginTop="14dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_marginTop="14dp"
+
+            tools:listitem="@layout/item_storage_card"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_deep_logo" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

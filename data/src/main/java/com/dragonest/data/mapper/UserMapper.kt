@@ -1,9 +1,13 @@
 package com.dragonest.data.mapper
 
+import com.dragonest.data.network.request.GoogleOauthRequest
 import com.dragonest.data.network.request.LoginRequest
+import com.dragonest.data.network.response.GoogleOauthResponse
 import com.dragonest.data.network.response.LoginResponse
 import com.dragonest.data.remote.dto.request.SignupRequest
 import com.dragonest.data.remote.dto.response.SignupResponse
+import com.dragonest.domain.model.user.GoogleOauthRequestModel
+import com.dragonest.domain.model.user.GoogleOauthResponseModel
 import com.dragonest.domain.model.user.LoginRequestModel
 import com.dragonest.domain.model.user.LoginResponseModel
 import com.dragonest.domain.model.user.SignupRequestModel
@@ -29,4 +33,13 @@ fun SignupRequestModel.toDto() = SignupRequest(
 fun SignupResponse.toModel() = SignupResponseModel(
     code = this.code,
     message = this.message
+)
+
+fun GoogleOauthRequestModel.toDto() = GoogleOauthRequest(
+    token = this.token
+)
+
+fun GoogleOauthResponse.toModel() = GoogleOauthResponseModel(
+    token = this.token,
+    refreshToken = this.refreshToken
 )

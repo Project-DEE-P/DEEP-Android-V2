@@ -2,9 +2,11 @@ package com.dragonest.deep_v2.feature.start.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.dragonest.deep_v2.feature.start.state.GoogleLoginState
 import com.dragonest.deep_v2.feature.start.state.LoginState
 import com.dragonest.deep_v2.feature.start.state.SignupState
 import com.dragonest.deep_v2.util.DeepApplication
+import com.dragonest.domain.model.user.GoogleOauthRequestModel
 import com.dragonest.domain.model.user.LoginRequestModel
 import com.dragonest.domain.model.user.SignupRequestModel
 import com.dragonest.domain.repository.UserRepository
@@ -25,6 +27,9 @@ class StartViewModel @Inject constructor(
 
     private val _signupState = MutableSharedFlow<SignupState>()
     val signupState: SharedFlow<SignupState> = _signupState
+
+    private val _googleLoginState = MutableSharedFlow<GoogleLoginState>()
+    val googleLoginState: SharedFlow<GoogleLoginState> = _googleLoginState
 
     fun login(loginRequestModel: LoginRequestModel) = viewModelScope.launch {
         kotlin.runCatching {
@@ -48,6 +53,19 @@ class StartViewModel @Inject constructor(
         }.onFailure { e ->
             Log.d(TAG, "login: FAILED.. $e")
             _signupState.emit(SignupState(error = "${e.message}"))
+        }
+    }
+
+    fun googleLogin(googleOauthRequestModel: GoogleOauthRequestModel) = viewModelScope.launch {
+        kotlin.runCatching {
+            userRepository.googleLogin(googleOauthRequestModel)
+        }.onSuccess {
+            Log.d(TAG, "googleLogin: SUCCESS!! $it")
+            _googleLoginState.emit(GoogleLoginState(isSuccess = true))
+            DeepApplication.prefs.setTokensInLogin(it.token, it.refreshToken)
+        }.onFailure {e ->
+            Log.d(TAG, "googleLogin: FAILED.. $e")
+            _googleLoginState.emit(GoogleLoginState(error = "$e"))
         }
     }
 

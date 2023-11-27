@@ -25,7 +25,11 @@
         android:id="@+id/navigation_profile"
         android:name="com.dragonest.deep_v2.feature.profile.ProfileFragment"
         android:label="프로필"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cardDetailFragment"
         android:name="com.dragonest.deep_v2.feature.carddetail.CardDetailFragment"
@@ -62,6 +66,15 @@
         <action
             android:id="@+id/to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dragonest.deep_v2.feature.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
 
 </navigation>

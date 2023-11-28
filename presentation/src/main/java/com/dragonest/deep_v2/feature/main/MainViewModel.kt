@@ -13,8 +13,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.io.File
+import com.dragonest.domain.repository.UserRepository
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+
+class MainViewModel: ViewModel() {
 
     var storageToDetail : CardResponseModel? = null
 

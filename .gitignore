@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+di/src/main/java/com/dragonest/di/Util.kt

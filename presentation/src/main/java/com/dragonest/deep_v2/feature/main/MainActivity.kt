@@ -13,9 +13,13 @@ import android.nfc.Tag
 import android.nfc.tech.Ndef
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -72,15 +76,35 @@ class MainActivity : AppCompatActivity() {
         }
         pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_MUTABLE)
 
+    private lateinit var navController: NavController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
 
 //        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val navController = binding.navHostFragmentActivityMain.getFragment<NavHostFragment>().navController
-
+        navController = binding.navHostFragmentActivityMain.getFragment<NavHostFragment>().navController
         navView.setupWithNavController(navController)
+
+        setBottomNavigation()
+    }
+
+    private fun setBottomNavigation() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.navigation_storage ||
+                destination.id == R.id.navigation_purchase ||
+                destination.id == R.id.navigation_profile
+            ) {
+                Log.d("상태", "보이기")
+                binding.navView.visibility = View.VISIBLE
+            } else {
+                Log.d("상태", "숨기기")
+                binding.navView.visibility = View.GONE
+            }
+        }
     }
 
     override fun onResume() {

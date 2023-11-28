@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".feature.start.screen.StartFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/TitleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_basic"
+            android:text="로그인"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/blue_500"
+            app:layout_constraintBottom_toTopOf="@+id/btn_google"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_google"
+            style="@style/TitleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_stroke"
+            android:text="구글로 로그인"
+            android:drawableLeft="@drawable/ic_google"
+            android:textColor="@color/gray_900"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/linear_signup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linear_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/ContentMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DEEP 유저가 아니라면?"
+                android:textColor="@color/gray_300"
+                tools:layout_editor_absoluteX="140dp"
+                tools:layout_editor_absoluteY="646dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/SubtitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="회원가입"
+                android:textColor="@color/gray_800"
+                tools:layout_editor_absoluteX="243dp"
+                tools:layout_editor_absoluteY="674dp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/deep_title"
+            app:layout_constraintBottom_toTopOf="@+id/btn_login"
+            android:layout_marginHorizontal="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="DEE:P image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

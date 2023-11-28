@@ -90,7 +90,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileViewModel>(R
 //            findNavController().navigate(R.id.action_navigation_profile_to_createCardFragment)
         }
 
-        CoroutineScope(Dispatchers.IO).launch{
+        binding.btnSetting.setOnClickListener {
+            findNavController().navigate(ProfileFragmentDirections.toSettingFragment())
+        }
+
+        CoroutineScope(Dispatchers.Main).launch{
             setCollector()
         }
 

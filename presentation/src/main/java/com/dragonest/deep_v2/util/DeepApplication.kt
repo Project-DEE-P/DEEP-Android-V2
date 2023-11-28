@@ -7,6 +7,7 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class DeepApplication : Application() {
+
     override fun onCreate() {
 
         val configuration = DocumentScanner.Configuration()
@@ -17,4 +18,16 @@ class DeepApplication : Application() {
 
         super.onCreate()
     }
+
+
+    companion object {
+        lateinit var prefs: PreferenceManager
+    }
+
+    override fun onCreate() {
+        prefs = PreferenceManager(applicationContext)
+        super.onCreate()
+    }
+
+
 }

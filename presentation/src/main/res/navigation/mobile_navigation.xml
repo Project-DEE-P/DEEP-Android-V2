@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_storage">
+    app:startDestination="@+id/startFragment">
 
     <fragment
         android:id="@+id/navigation_storage"
@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_storage" >
         <action
             android:id="@+id/action_navigation_storage_to_cardDetailFragment"
-            app:destination="@id/cardDetailFragment" />
+            app:destination="@id/cardDetailFragment"/>
     </fragment>
 
     <fragment
@@ -26,6 +26,13 @@
         android:name="com.dragonest.deep_v2.feature.profile.ProfileFragment"
         android:label="프로필"
         tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/cardDetailFragment"
@@ -39,6 +46,70 @@
             android:id="@+id/action_cardRememberFragment_to_navigation_storage"
             app:destination="@id/navigation_storage" />
     </fragment>
-
+        android:id="@+id/startFragment"
+        android:name="com.dragonest.deep_v2.feature.start.screen.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+        <action
+            android:id="@+id/to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+        <action
+            android:id="@+id/to_navigation_storage"
+            app:destination="@id/navigation_storage"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dragonest.deep_v2.feature.start.screen.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/to_navigation_storage"
+            app:destination="@id/navigation_storage"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.dragonest.deep_v2.feature.start.screen.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dragonest.deep_v2.feature.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/to_startFragment"
+            app:destination="@id/startFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
+    </fragment>
 
 </navigation>

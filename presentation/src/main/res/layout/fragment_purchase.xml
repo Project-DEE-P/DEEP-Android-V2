@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.purchase.PurchaseFragment">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="purchase" />
+            android:id="@+id/txt_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    </FrameLayout>
+            android:fontFamily="@font/pretendard_regular"
+            android:text="3월 달 정식으로 구매 페이지 오픈 예정입니다"
+            android:textColor="@color/gray_300"
+            android:textSize="14dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

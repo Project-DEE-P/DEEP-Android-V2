@@ -18,6 +18,10 @@
 
     <color name="blue_500">#FF1775F9</color>
 
+    <color name="blue_500_trans">#201775F9</color>
+
+
     <color name="line">#FFE5E7EB</color>
+
     <color name="transparent">#00FFFFFF</color>
 </resources>

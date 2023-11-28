@@ -1,6 +1,9 @@
 package com.dragonest.di.module
 
 import com.dragonest.data.repositoryimpl.CardRepositoryImpl
+import com.dragonest.data.repositoryimpl.ClovaOcrRepositoryImpl
+import com.dragonest.di.BasicRetrofit
+import com.dragonest.domain.repository.ClovaOcrRepository
 import com.dragonest.data.repositoryimpl.OauthRepositoryImpl
 import com.dragonest.data.repositoryimpl.UserRepositoryImpl
 import com.dragonest.di.BasicRetrofit
@@ -41,6 +44,16 @@ class RepositoryModule {
 
 //    @Provides
 //    @Singleton
+//    fun provideUserRepository(
+//        impl : UserRepositoryImpl
+//    ): UserRepository = impl
+//
+    @Provides
+    @Singleton
+    fun provideClovaOcrRepository(
+        impl : ClovaOcrRepositoryImpl
+    ) : ClovaOcrRepository = impl
+  
 //    fun provideClovaOcrRepository(
 //        impl : ClovaOcrRepositoryImpl
 //    ) : ClovaOcrRepository = impl

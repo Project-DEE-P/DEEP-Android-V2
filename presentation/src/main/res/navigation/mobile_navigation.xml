@@ -39,6 +39,13 @@
         android:name="com.dragonest.deep_v2.feature.carddetail.CardDetailFragment"
         android:label="CardDetailFragment" />
     <fragment
+        android:id="@+id/cardRememberFragment"
+        android:name="com.dragonest.deep_v2.feature.cardremember.CardRememberFragment"
+        android:label="CardRememberFragment" >
+        <action
+            android:id="@+id/action_cardRememberFragment_to_navigation_storage"
+            app:destination="@id/navigation_storage" />
+    </fragment>
         android:id="@+id/startFragment"
         android:name="com.dragonest.deep_v2.feature.start.screen.StartFragment"
         android:label="fragment_start"

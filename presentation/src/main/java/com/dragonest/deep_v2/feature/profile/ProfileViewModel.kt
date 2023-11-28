@@ -1,6 +1,7 @@
 package com.dragonest.deep_v2.feature.profile
 
 import android.util.Log
+import androidx.databinding.ObservableField
 import androidx.lifecycle.viewModelScope
 import com.dragonest.deep_v2.base.UiState
 import com.dragonest.deep_v2.util.TAG
@@ -22,6 +23,9 @@ class ProfileViewModel @Inject constructor(
     private val _getCardListState = MutableStateFlow<UiState<List<CardResponseModel>?>>(UiState.Loading)
     var getCardListState: StateFlow<UiState<List<CardResponseModel>?>> = _getCardListState.asStateFlow()
 
+    var selectedCard : CardResponseModel? = null
+    var isSelected = ObservableField<Boolean>(false)
+
     fun getCardList() = viewModelScope.launch {
 
         kotlin.runCatching {
@@ -34,5 +38,6 @@ class ProfileViewModel @Inject constructor(
         }
 
     }
+
 
 }

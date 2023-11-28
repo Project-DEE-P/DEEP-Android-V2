@@ -4,6 +4,7 @@ import com.dragonest.data.network.request.PostCardRequest
 import com.dragonest.data.network.response.ImageCardResponse
 import com.dragonest.data.network.response.PostImageResponse
 import com.dragonest.data.network.response.TemplateCardResponse
+import com.dragonest.data.remote.dto.request.RememberCardRequest
 import com.dragonest.data.remote.util.BaseResponse
 import okhttp3.MultipartBody
 import retrofit2.http.Body
@@ -25,6 +26,10 @@ interface CardApi {
         @Part image : MultipartBody.Part
     ) : BaseResponse<PostImageResponse>
 
+    @POST("/v2/api/remember")
+    suspend fun rememberCard(
+        @Body request : RememberCardRequest
+    ) : BaseResponse<Any>
 
     @POST("/v2/api/card/image")
     suspend fun postImageCard(

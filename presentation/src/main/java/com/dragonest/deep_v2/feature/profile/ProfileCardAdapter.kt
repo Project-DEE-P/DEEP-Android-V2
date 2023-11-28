@@ -24,14 +24,27 @@ class ProfileCardAdapter : BaseListAdapter<CardResponseModel, ItemProfileCardBin
         binding.checkboxCard.isChecked = currentPosition == selectedPosition
 
         binding.root.setOnClickListener {
+
+            if (binding.checkboxCard.isChecked) {
+
+                binding.checkboxCard.isChecked = false
+                itemClickListener.onClick(data, false)
+
+            }
+            else{
+                binding.checkboxCard.isChecked = true
+                itemClickListener.onClick(data, true)
+            }
+
             if (selectedPosition != currentPosition) {
                 val previousSelectedPosition = selectedPosition
                 selectedPosition = currentPosition
 
                 // 이전 선택된 항목의 체크를 해제하고 현재 선택된 항목만 체크합니다.
                 notifyItemChanged(previousSelectedPosition, PAYLOAD_UNCHECK)
-                notifyItemChanged(selectedPosition, PAYLOAD_CHECK)
+//                notifyItemChanged(selectedPosition, PAYLOAD_CHECK)
             }
+
         }
 
         Glide.with(binding.root.context)
@@ -61,9 +74,7 @@ class ProfileCardAdapter : BaseListAdapter<CardResponseModel, ItemProfileCardBin
     private lateinit var itemClickListener : OnItemClickListener
 
     interface OnItemClickListener {
-        fun onClick(data : CardResponseModel){
-
-        }
+        fun onClick(data : CardResponseModel, isSelected : Boolean)
     }
 
     fun setItemClickListener(itemClickListener: OnItemClickListener){

@@ -40,8 +40,8 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
     private fun prepareDataBinding() {
         mViewModel = if (::mViewModel.isInitialized) mViewModel else viewModel
 //        binding.setVariable(BR.vm, viewModel)
-        binding.lifecycleOwner = this
-        binding.executePendingBindings()
+//        binding.lifecycleOwner = this
+//        binding.executePendingBindings()
     }
 
     override fun onDestroy() {

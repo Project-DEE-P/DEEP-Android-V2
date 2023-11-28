@@ -13,5 +13,6 @@
     <color name="gray_300">#FF8C9AAB</color>
     <color name="gray_50">#FFEEF0F2</color>
     <color name="blue_500">#FF1775F9</color>
+    <color name="blue_500_trans">#201775F9</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>

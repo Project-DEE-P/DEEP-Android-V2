@@ -1,8 +1,10 @@
 package com.dragonest.di.module
 
 import com.dragonest.data.repositoryimpl.CardRepositoryImpl
+import com.dragonest.data.repositoryimpl.ClovaOcrRepositoryImpl
 import com.dragonest.di.BasicRetrofit
 import com.dragonest.domain.repository.CardRepository
+import com.dragonest.domain.repository.ClovaOcrRepository
 import dagger.Binds
 import dagger.Component
 import dagger.Module
@@ -30,10 +32,10 @@ class RepositoryModule {
 //        impl : UserRepositoryImpl
 //    ): UserRepository = impl
 //
-//    @Provides
-//    @Singleton
-//    fun provideClovaOcrRepository(
-//        impl : ClovaOcrRepositoryImpl
-//    ) : ClovaOcrRepository = impl
+    @Provides
+    @Singleton
+    fun provideClovaOcrRepository(
+        impl : ClovaOcrRepositoryImpl
+    ) : ClovaOcrRepository = impl
 
 }

@@ -29,4 +29,9 @@ interface CardRepository {
         id : Int
     )
 
+    suspend fun rememberCard(
+        cardType : String,
+        id : Long
+    )
+
 }

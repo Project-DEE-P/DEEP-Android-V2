@@ -3,6 +3,7 @@ package com.dragonest.data.repositoryimpl
 import com.dragonest.data.mapper.toDto
 import com.dragonest.data.mapper.toModel
 import com.dragonest.data.network.api.CardApi
+import com.dragonest.data.remote.dto.request.RememberCardRequest
 import com.dragonest.domain.model.CardRequestModel
 import com.dragonest.domain.model.CardResponseModel
 import com.dragonest.domain.repository.CardRepository
@@ -57,8 +58,13 @@ class CardRepositoryImpl @Inject constructor(
     }
 
     override suspend fun deleteCard(id: Int) {
-
         cardApi.deleteCard(id)
 
+    }
+
+    override suspend fun rememberCard(cardType: String, id: Long) {
+        cardApi.rememberCard(RememberCardRequest(
+            cardType, id
+        ))
     }
 }

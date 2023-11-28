@@ -2,6 +2,7 @@ package com.dragonest.domain.mapper
 
 import com.dragonest.domain.model.CardInfoModel
 import com.dragonest.domain.model.CardInfoType
+import com.dragonest.domain.model.CardRequestModel
 import com.dragonest.domain.model.CardResponseModel
 
 fun CardResponseModel.toModel() : List<CardInfoModel> {
@@ -82,3 +83,4 @@ fun CardResponseModel.toModel() : List<CardInfoModel> {
 
     return list
 }
+

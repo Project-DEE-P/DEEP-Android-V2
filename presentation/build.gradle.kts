@@ -18,6 +18,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
+
     }
 
     buildTypes {
@@ -61,6 +63,12 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     kapt("com.github.bumptech.glide:compiler:4.12.0")
+
+    implementation ("com.sothree.slidinguppanel:library:3.4.0")
+
+    implementation ("com.github.zynkware:Document-Scanning-Android-SDK:1.1.1")
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
     implementation(project(":di"))
     implementation(project(":domain"))
